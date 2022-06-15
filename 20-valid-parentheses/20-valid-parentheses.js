@@ -6,21 +6,20 @@
 var isValid = function (s) {
   let stack = []
   for (let i = 0; i < s.length; i++) {
-    let bracket = s.charAt(i)
-    if (bracket === "(" || bracket === "[" || bracket === "{") {
-      stack.push(bracket)
+    if (s[i] === "(" || s[i] === "[" || s[i] === "{") {
+      stack.push(s[i])
     } else {
       if (stack.length === 0) {
         return false
       }
       let top = stack.pop()
-      if (bracket === ")" && top !== "(") {
+      if (top === "(" && s[i] !== ")") {
         return false
       }
-      if (bracket === "]" && top !== "[") {
+      if (top === "[" && s[i] !== "]") {
         return false
       }
-      if (bracket === "}" && top !== "{") {
+      if (top === "{" && s[i] !== "}") {
         return false
       }
     }
