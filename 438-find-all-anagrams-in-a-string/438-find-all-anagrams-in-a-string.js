@@ -34,7 +34,7 @@ var findAnagrams = function(s, p) {
 
     // shrink the sliding window
     if (windowEnd >= p.length - 1) {
-      leftChar = s[windowStart];
+      const leftChar = s[windowStart];
       windowStart += 1;
       if (leftChar in charFrequency) {
         if (charFrequency[leftChar] === 0) {
