@@ -9,7 +9,7 @@ var removeDuplicates = function(nums) {
     while (i < nums.length) {
         if (nums[nextNonDuplicate - 1] !== nums[i]) {
             nums[nextNonDuplicate] = nums[i];
-            nextNonDuplicate += 1;
+            nextNonDuplicate += 1
         }
         
         i += 1;
