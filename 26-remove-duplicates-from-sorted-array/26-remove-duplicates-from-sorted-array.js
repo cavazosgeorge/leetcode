@@ -7,12 +7,14 @@ var removeDuplicates = function(nums) {
     
     let i = 0;
     while (i < nums.length) {
-        if (nums[nextNonDuplicate - 1] !== nums[i]) {
-            nums[nextNonDuplicate] = nums[i];
-            nextNonDuplicate += 1
+        const next = nums[nextNonDuplicate - 1];
+        const current = nums[i];
+        if (next !== current) {
+            nums[nextNonDuplicate] = current;
+            nextNonDuplicate++;
         }
         
-        i += 1;
+        i++;
     }
     
     return nextNonDuplicate;
