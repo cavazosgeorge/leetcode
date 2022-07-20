@@ -4,17 +4,26 @@
  */
 
 var maxArea = function (height) {
-  let max = 0
-  let left = 0
-  let right = height.length - 1
-  while (left < right) {
-    let area = Math.min(height[left], height[right]) * (right - left)
-    max = Math.max(max, area)
-    if (height[left] < height[right]) {
-      left++
-    } else {
-      right--
+    // VARIABLE TO STORE WATER
+    let maxWater = 0;
+    // START AT THE BEGINNING AND END OF THE ARRAY
+    let i = 0, j = height.length - 1;
+    // WHILE THE 2 POINTERS DONT INTERSECT
+    while (i < j) {
+        // FIND THE MIN HEIGHT
+        let currHeight = Math.min(height[i], height[j])
+        // FIND WIDTH
+        let currWidth = j - i;
+        // FIND AREA
+        let currWater = currHeight * currWidth;
+        // UPDATE MAX WATER
+        maxWater = Math.max(maxWater, currWater);
+        if (height[i] < height[j]) {
+            i++;
+        }
+        else {
+            j--;
+        }
     }
-  }
-  return max
-}
+    return maxWater;
+};
