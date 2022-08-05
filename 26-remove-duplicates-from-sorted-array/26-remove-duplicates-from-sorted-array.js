@@ -3,19 +3,12 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let nextNonDuplicate = 1;
-    
-    let i = 0;
-    while (i < nums.length) {
-        const next = nums[nextNonDuplicate - 1];
-        const current = nums[i];
-        if (next !== current) {
-            nums[nextNonDuplicate] = current;
-            nextNonDuplicate++;
+    let slow = 0;
+    for (let fast = 0; fast < nums.length; fast++) {
+        if (nums[fast] !== nums[slow]) {
+            slow++;
+            nums[slow] = nums[fast];
         }
-        
-        i++;
     }
-    
-    return nextNonDuplicate;
+    return slow + 1;
 };
