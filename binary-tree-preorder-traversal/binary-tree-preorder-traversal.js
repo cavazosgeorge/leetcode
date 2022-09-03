@@ -22,3 +22,25 @@ const preorderTraversal = (root) => {
     traverse(root);
     return output;
 }
+
+// iterative
+// const preorderTraversal = (root) => {
+//     let stack = [], output = [];
+//     while (stack.length || node !== null) {
+//         if (node !== null) {
+//             output.push(node.val);
+//             stack.push(node);
+//             node = node.left;
+//         } else {
+//             node = stack.pop().right;
+//         }
+//     }
+    
+//     return output;
+// }
+
+
+
+
+
+
