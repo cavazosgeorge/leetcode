@@ -2,37 +2,30 @@
  * @param {number[]} nums
  * @return {number}
  */
-// const missingNumber = (nums) => {
-//     let result = new Array(nums.length + 1).fill(-1);
-    
-//     for (const num of nums) {
-//         result[num] = num;
-//     }
-    
-//     return result.indexOf(-1);
-// }
-
-
-// solution #2
 const missingNumber = (nums) => {
-    let i = 0, j = null;
-    const n = nums.length;
-    
-    while (i < nums.length) {
-        j = nums[i];
-        if (nums[i] < n && nums[i] !== nums[j]) {
-            [nums[i], nums[j]] = [nums[j], nums[i]]; // perform swap
-        } else {
-            i += 1;
-        }
+  let i = 0
+  const n = nums.length
+
+  while (i < n) {
+    let correctIdx = nums[i] 
+    if (nums[i] < n && nums[i] !== nums[correctIdx]) {
+      swap(nums, i, correctIdx)
+    } else {
+      i++
     }
-    
-    // find the first number missing from its index, that will be our number
-    for (let i = 0; i < n; i++) {
-        if (nums[i] !== i) {
-            return i;
-        }
+  }
+  // search for first missing number
+  for (let index = 0; index < n; index++) {
+    if (nums[index] !== index) {
+      return index
     }
-    
-    return n;
+  }
+
+  return n
+}
+
+const swap = (arr, first, second) => {
+    let temp = arr[first];
+    arr[first] = arr[second];
+    arr[second] = temp;
 }
