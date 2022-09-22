@@ -3,16 +3,21 @@
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
-    let left = 0, right = nums.length - 1;
-    while (left <= right) {
-        let mid = left + Math.floor((right - left) /2); // Math.floor((left + right) / 2);
-        if (nums[mid] === target) return mid;           // (mid === target) 
-        if (nums[mid] < target) {
-            left = mid + 1;
+const search = function (nums, target) {
+    let start = 0;
+    let end = nums.length - 1;
+    
+    while (start <= end) {
+        let mid = start + Math.floor((end - start) / 2);
+        
+        if (nums[mid] === target) return mid;
+        
+        if (target < nums[mid]) {
+            end = mid - 1;
         } else {
-            right = mid - 1;
+            start = mid + 1;
         }
     }
+    
     return -1;
-};
+}
