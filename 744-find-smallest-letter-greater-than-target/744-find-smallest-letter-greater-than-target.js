@@ -10,7 +10,6 @@ var nextGreatestLetter = function(letters, target) {
   while (start <= end) {
     const mid = start + Math.floor((end - start) / 2)
     
-
     if (target < letters[mid]) {
       end = mid - 1
     } else {
